@@ -7,8 +7,8 @@ RUN yum install -y yum-utils device-mapper-persistent-data lvm2 &&\
     yum install -y docker-ce &&\
     yum install -y net-tools iproute && yum clean all
 
-ADD resources/host-ip.sh /opt/host-ip.sh
+ADD resources/docker-run.sh /opt/docker-run.sh
 
-CMD chmod +x /opt/host-ip.sh
+CMD chmod +x /opt/docker-run.sh
 HEALTHCHECK --interval=5s CMD [ -e /tmp/.lock ] || exit 1
 CMD ["fwatchdog"]
