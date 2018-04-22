@@ -11,6 +11,8 @@ ADD resources/docker-run.sh /opt/docker-run.sh
 
 CMD chmod +x /opt/docker-run.sh
 HEALTHCHECK --interval=5s CMD [ -e /tmp/.lock ] || exit 1
-LABEL "com.openfaas.scale.min"="3"
+
+LABEL com.openfaas.scale.min="3"
+LABEL com.openfaas.scale.max="3"
 
 CMD ["fwatchdog"]
